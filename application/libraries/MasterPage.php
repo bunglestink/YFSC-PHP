@@ -2,6 +2,7 @@
 /**
  * @author Kim Johansson <hagbarddenstore@gmail.com>
  * @copyright Copyright (c) 2008, Kim Johansson
+ * @altered by Kirk Thompson, 4/29/2012
  *
  * @version 0.0.1
  */

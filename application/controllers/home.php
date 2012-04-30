@@ -7,8 +7,6 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('AnnouncementService', '', TRUE);
 		$this->load->model('CoachService', '', TRUE);
-		$this->load->helper('url');
-		$this->load->library('masterpage');
 		
 		$this->masterpage->setMasterPage('masters/main');
 	}

@@ -5,8 +5,11 @@ class RegistrationTerm extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('RegistrationTermService', '', TRUE);
+		if (!in_array('Admin', $this->session->userdata('roles'))) {
+			redirect('/account/logOn');
+		}
 		
+		$this->load->model('RegistrationTermService', '', TRUE);
 		$this->masterpage->setMasterPage('masters/main');
 	}
     

@@ -32,13 +32,13 @@
             </div>
 
             <div id="logindisplay">
-				<!--<sec:authorize access="isAuthenticated()">-->
-					<text>Welcome <b><sec:authentication property="principal.username" /></b>!
-					[ <a href="<?= site_url("/membership/index") ?>">Member Area</a> | <a href="<?= site_url("/account/logOff") ?>">Log Off</a> ]</text>
-				<!--</sec:authorize>
-				<sec:authorize access="!isAuthenticated()">
-				    [ <a href="<?= site_url("/account/logOn") ?>">Log On</a> ] | [ <a href="<?= site_url("/account/create") ?>">Create Account</a> ]
-				</sec:authorize>-->
+				<? $ci = get_instance(); ?>
+				<? if ($ci->session->userdata('username')) { ?>
+					<text>Welcome <b><?= $ci->session->userdata('username') ?></b>!
+					[ <?= anchor("/membership/index", "Member Area") ?> | <?= anchor("/account/logOff", "Log Off") ?> ]</text>
+				<? } else { ?>
+				    [ <?= anchor("/account/logOn", "Log On") ?> ] | [ <?= anchor("/account/create", "Create Account") ?> ]
+				<? } ?>
             </div>
 
             <div id="menucontainer">

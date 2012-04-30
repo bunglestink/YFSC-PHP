@@ -12,4 +12,9 @@ class ModelBinder {
 		}
 		return $object;
 	}
+	
+	public function bindJson() 
+	{
+		return json_decode(file_get_contents('php://input'));
+	}
 }

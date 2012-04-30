@@ -5,6 +5,10 @@ class CalendarItem extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
+		if (!in_array('Admin', $this->session->userdata('roles'))) {
+			redirect('/account/logOn');
+		}
+		
 		$this->load->model('CalendarItemService', '', TRUE);
 		
 		$this->masterpage->setMasterPage('masters/main');

@@ -5,12 +5,17 @@ class Coach extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
+		if (!in_array('Admin', $this->session->userdata('roles'))) {
+			redirect('/account/logOn');
+		}
 		
 		$this->load->model('CoachService', '', TRUE);
 		$this->masterpage->setMasterPage('masters/main');
 	}
+	
+	
     
-    public function index() 
+    public function index()
 	{
 		$model = new stdClass();
         $model->coaches = $this->CoachService->getAll();

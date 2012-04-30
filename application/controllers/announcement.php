@@ -5,11 +5,11 @@ class Announcement extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('AnnouncementService', '', TRUE);
-		$this->load->helper('url');
-		$this->load->library('masterpage');
-		$this->load->library('modelbinder');
+		if (!in_array('Admin', $this->session->userdata('roles'))) {
+			redirect('/account/logOn');
+		}
 		
+		$this->load->model('AnnouncementService', '', TRUE);
 		$this->masterpage->setMasterPage('masters/main');
 	}
     
