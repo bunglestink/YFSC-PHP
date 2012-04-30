@@ -23,32 +23,53 @@ class Home extends CI_Controller {
 	
 	public function program()
 	{
-		$this->load->content('home/program', 'Content')->show();
+		$this->masterpage->content('home/program', 'Content')->show();
 	}
 	
 	
 	public function calendar()
 	{
-		$this->load->content('home/calendar', 'Content')->show();
+		$this->masterpage->content('home/calendar', 'Content')->show();
 	}
 	
 	
-	public function clubCoahes($id = NULL)
+	public function clubCoaches($id = NULL)
 	{
 		$model = new stdClass();
 		
 		if ($id === NULL) {
 			$model->coaches = $this->CoachService->getAll();
-			$this->load->content('home/coaches', 'Content')->show();
+			$this->masterpage->content('home/coaches', 'Content', $model)->show();
 			return;
 		}
 		
 		$model->coach = $this->CoachService->get($id);
-		if (coach === NULL) {
+		if ($model->coach === NULL) {
 			redirect(site_url('home/clubCoaches'));
 			return;
 		}
 			
-		$this->load->content('home/coach', 'Content')->show();
+		$this->masterpage->content('home/coach', 'Content', $model->coach)->show();
+	}
+	
+	
+	public function membership()
+	{
+		$this->masterpage->content('home/membership', 'Content')->show();
+	}
+	
+	public function brochure()
+	{
+		$this->masterpage->content('home/brochure', 'Content')->show();
+	}
+	
+	public function byLaws()
+	{
+		$this->masterpage->content('home/byLaws', 'Content')->show();
+	}
+	
+	public function contactInformation()
+	{
+		$this->masterpage->content('home/contactInformation', 'Content')->show();
 	}
 }

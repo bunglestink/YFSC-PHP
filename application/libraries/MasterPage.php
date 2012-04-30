@@ -62,6 +62,8 @@ class MasterPage {
             $masterPage = str_replace ( '<mp:' . ucfirst ( strtolower ( $tag ) ) . ' />',
             $content, $masterPage );
         }
+		
+		$masterPage = preg_replace('/<mp:.*? \/>/i', '', $masterPage);
 
         // Finally, print the data.
         echo $masterPage;

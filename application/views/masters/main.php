@@ -24,7 +24,7 @@
     </script>
 </head>
 <body>
-    <div id="page" class="page" data-message="${message}">
+    <div id="page" class="page" data-message="<mp:Message />">
 
         <div id="header">
             <div id="title">
@@ -32,26 +32,26 @@
             </div>
 
             <div id="logindisplay">
-				<!--<sec:authorize access="isAuthenticated()">
+				<!--<sec:authorize access="isAuthenticated()">-->
 					<text>Welcome <b><sec:authentication property="principal.username" /></b>!
-					[ <a href="<?= base_url("/membership/index") ?>">Member Area</a> | <a href="<?= base_url("/account/logOff") ?>">Log Off</a> ]</text>
-				</sec:authorize>
+					[ <a href="<?= site_url("/membership/index") ?>">Member Area</a> | <a href="<?= site_url("/account/logOff") ?>">Log Off</a> ]</text>
+				<!--</sec:authorize>
 				<sec:authorize access="!isAuthenticated()">
-				    [ <a href="<?= base_url("/account/logOn") ?>">Log On</a> ] | [ <a href="<?= base_url("/account/create.do") ?>">Create Account</a> ]
+				    [ <a href="<?= site_url("/account/logOn") ?>">Log On</a> ] | [ <a href="<?= site_url("/account/create") ?>">Create Account</a> ]
 				</sec:authorize>-->
             </div>
 
             <div id="menucontainer">
 
                 <ul id="menu">
-                    <li><a href="<?= base_url("/home/index.do") ?>">Home</a></li>
-                    <li><a href="<?= base_url("/home/program.do") ?>">Program</a></li>
-                    <li><a href="<?= base_url("/home/calendar.do") ?>">Calendar</a></li>
-					<li><a href="<?= base_url("/home/clubCoaches.do") ?>">Coaches</a></li>
-                    <li><a href="<?= base_url("/home/membership.do") ?>">Membership</a></li>
-                    <li><a href="<?= base_url("/home/brochure.do") ?>">Brochure</a></li>
-                    <li><a href="<?= base_url("/home/byLaws.do") ?>">ByLaws</a></li>
-                    <li><a href="<?= base_url("/home/contactInformation.do") ?>">Contact</a></li>
+                    <li><a href="<?= site_url("/home/index") ?>">Home</a></li>
+                    <li><a href="<?= site_url("/home/program") ?>">Program</a></li>
+                    <li><a href="<?= site_url("/home/calendar") ?>">Calendar</a></li>
+					<li><a href="<?= site_url("/home/clubCoaches") ?>">Coaches</a></li>
+                    <li><a href="<?= site_url("/home/membership") ?>">Membership</a></li>
+                    <li><a href="<?= site_url("/home/brochure") ?>">Brochure</a></li>
+                    <li><a href="<?= site_url("/home/byLaws") ?>">ByLaws</a></li>
+                    <li><a href="<?= site_url("/home/contactInformation") ?>">Contact</a></li>
                 </ul>
 
             </div>
