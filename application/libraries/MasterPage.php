@@ -15,7 +15,7 @@ class MasterPage {
      * @param string $masterPage Optional file to use as MasterPage.
      */
     public function __construct ( $masterPage = '' ) {
-        $this->CI = get_instance ( );
+        $this->ci= get_instance ( );
         if ( ! empty ( $masterPage ) )
             $this->setMasterPage ( $masterPage );
     }
@@ -46,9 +46,23 @@ class MasterPage {
      * @param mixed $content The content to be used in the view file.
      */
     public function content ( $file, $tag, $content = array ( ) ) {
-        $this->contentPages[$tag] = $this->CI->load->view ( $file, $content, true );
+        $this->contentPages[$tag] = $this->ci->load->view ( $file, $content, true );
 		return $this;
     }
+	
+	
+	/**
+     * @access public
+     * @param string $string The string to add.
+     * @param string $tag The tag in the MasterPage it should match.
+     * @param mixed $content The content to be used in the view file.
+     */
+    public function contentString ($string, $tag) {
+        $this->contentPages[$tag] = $string;
+		return $this;
+    }
+	
+	
 
     /**
      * @access public
@@ -57,7 +71,7 @@ class MasterPage {
     public function show ( $content = array ( ) ) {
         // Get the content of the MasterPage and replace all matching tags with their
         // respective view file content.
-        $masterPage = $this->CI->load->view ( $this->masterPage, $content, true );
+        $masterPage = $this->ci->load->view ( $this->masterPage, $content, true );
         foreach ( $this->contentPages as $tag => $content ) {
             $masterPage = str_replace ( '<mp:' . ucfirst ( strtolower ( $tag ) ) . ' />',
             $content, $masterPage );
