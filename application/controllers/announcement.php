@@ -40,7 +40,6 @@ class Announcement extends CI_Controller {
         $this->masterpage->content('/announcement/edit', 'Content', $model)->show();
     }
     
-	//TODO: figure out mapping...
     public function commit() 
 	{    
 		$announcement = $this->modelbinder->bind($this->input->post());
