@@ -68,10 +68,12 @@ class AnnouncementService extends CI_Model {
 	
 	public function save($announcement) 
 	{
+		$id = $announcement->id;
 		unset($announcement->id);
 		$this->db
 			->set($announcement)
 			->insert('announcements');
+		$announcement->id = $id;
 	}
 	
 	

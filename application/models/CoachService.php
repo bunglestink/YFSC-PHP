@@ -57,10 +57,12 @@ class CoachService extends CI_Model {
 	
 	public function save($coach)
 	{
+		$id = $coach->id;
 		unset($coach->id);
 		$this->db
 			->set($coach)
 			->insert('coaches');
+		$coach->id = $id;
 	}
 	
 	

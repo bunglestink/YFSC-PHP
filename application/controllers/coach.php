@@ -5,11 +5,8 @@ class Coach extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('CoachService', '', TRUE);
-		$this->load->helper('url');
-		$this->load->library('masterpage');
-		$this->load->library('modelbinder');
 		
+		$this->load->model('CoachService', '', TRUE);
 		$this->masterpage->setMasterPage('masters/main');
 	}
     
